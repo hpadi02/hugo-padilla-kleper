@@ -1,0 +1,69 @@
+/* Background color and default text color */
+body {
+  background-color: #fefefe;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+body {
+  font-family: 'Times New Roman', sans-serif;
+  color:#000000
+}
+
+/* Headings */
+h1, h2, h3 {
+  color: #1a066b;
+  font-weight: 1000;
+}
+
+h1 {
+  font-size: 3.5em;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Sections */
+section {
+  margin: 60px 20px;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* center align content of a specific section */
+#about {
+  text-align: center;
+}
+
+/* Style the name at the top */
+#name-header {
+  font-size: 3em;
+  font-weight: bold;
+  color: #1a73e8;
+  text-align: center;
+  padding-top: 20px;
+}
+
+/* Experience list blocks */
+.experience-item {
+  background-color: #8598ed;
+  border: 1px solid #0e258b;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px 0;
+  box-shadow: 2px 2px 5px rgba(232, 224, 224, 0.1);
+}
+
+/* Connect links */
+.connect a {
+  color: #1a73e8;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.connect a:hover {
+  text-decoration: underline;
+}
