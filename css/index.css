@@ -48,6 +48,7 @@ section {
 }
 
 /* Experience list blocks */
+/* Experience list blocks */
 .experience-item {
   background-color: #8598ed;
   border: 1px solid #0e258b;
@@ -55,15 +56,68 @@ section {
   padding: 15px;
   margin: 10px 0;
   box-shadow: 2px 2px 5px rgba(232, 224, 224, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+#experience ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.experience-row {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.experience-description {
+  margin-top: 10px;
 }
 
 /* Connect links */
+.connect {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
 .connect a {
   color: #1a73e8;
   text-decoration: none;
-  margin-right: 10px;
 }
 
 .connect a:hover {
+  text-decoration: underline;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  padding: 10px 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #1a066b;
+  font-weight: bold;
+}
+
+nav a:hover {
   text-decoration: underline;
 }
