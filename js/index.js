@@ -23,8 +23,14 @@ const skills = [
   "JavaScript",
   "HTML",
   "CSS",
-  "Adobe Photoshop",
-  "GitHub"
+  "Python",
+  "GitHub",
+  "Git",
+  "React",
+  "Node.js",
+  "Express",
+  "MongoDB",
+  "MySQL"
 ];
 
 // Select the skills section by id
