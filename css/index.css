@@ -78,11 +78,12 @@ section {
 
 /* Connect links */
 .connect {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 20px;
   align-items: center;
-  justify-content: center;
+  justify-items: center;
+  margin-top: 20px;
 }
 
 .connect a {
@@ -120,4 +121,65 @@ nav a {
 
 nav a:hover {
   text-decoration: underline;
+}
+
+
+
+/* ===== Tablet Styles (min-width: 600px) ===== */
+@media screen and (min-width: 600px) {
+  /* Tablet: h1 styling */
+  h1 {
+    font-size: 4em;
+    color: #004aad;
+  }
+
+  /* Tablet: unordered list (experience section) */
+  #experience ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  /* Tablet: top name element (#name-header) */
+  #name-header {
+    font-size: 3.5em;
+    color: #003366;
+  }
+
+  /* Tablet: connect icons */
+  .connect img {
+    width: 72px;
+    height: 72px;
+    filter: grayscale(20%);
+  }
+}
+
+/* ===== Desktop Styles (min-width: 1024px) ===== */
+@media screen and (min-width: 1024px) {
+  /* Desktop: h1 styling */
+  h1 {
+    font-size: 4.5em;
+    letter-spacing: 1px;
+    color: #002244;
+  }
+
+  /* Desktop: unordered list (experience section) */
+  #experience ul {
+    justify-content: space-around;
+    gap: 40px;
+  }
+
+  /* Desktop: top name element (#name-header) */
+  #name-header {
+    font-size: 4em;
+    color: #000066;
+    padding-top: 30px;
+  }
+
+  /* Desktop: connect icons */
+  .connect img {
+    width: 80px;
+    height: 80px;
+    filter: grayscale(50%);
+  }
 }
