@@ -7,6 +7,88 @@ body {
   padding: 0;
 }
 
+/* ===== Message Form Styling ===== */
+#leave_message {
+  background-color: #f5f5f5;
+  padding: 20px;
+  margin: 40px auto;
+  max-width: 600px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+#leave_message label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#leave_message input,
+#leave_message textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+#leave_message button {
+  padding: 10px 20px;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#leave_message button:hover {
+  background-color: #004aad;
+}
+
+/* ===== Message List Section ===== */
+#messages {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#messages ul {
+  list-style: none;
+  padding: 0;
+}
+
+#messages li {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #e6e6ff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#messages li span {
+  margin-left: 10px;
+}
+
+#messages button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#messages button:hover {
+  background-color: #cc0000;
+}
+
 
 
 body {
