@@ -49,3 +49,48 @@ for (let i = 0; i < skills.length; i++) {
   skill.innerText = skills[i];
   skillsList.appendChild(skill);
 }
+
+document.getElementById("messages").style.display = "none";
+
+// Handle form submission
+const messageForm = document.forms["leave_message"];
+
+messageForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const usersName = event.target.usersName.value;
+  const usersEmail = event.target.usersEmail.value;
+  const usersMessage = event.target.usersMessage.value;
+
+  const messageSection = document.getElementById("messages");
+  const messageList = messageSection.querySelector("ul");
+
+  const newMessage = document.createElement("li");
+
+  newMessage.innerHTML = `
+    <a href="mailto:${usersEmail}">${usersName}</a>
+    <span>: ${usersMessage}</span>
+    <button type="button" class="edit">Edit</button>
+    <button type="button" class="remove">Remove</button>
+  `;
+
+  const removeButton = newMessage.querySelector(".remove");
+  removeButton.addEventListener("click", function () {
+    newMessage.remove();
+    if (messageList.children.length === 0) {
+      messageSection.style.display = "none";
+    }
+  });
+
+  const editButton = newMessage.querySelector(".edit");
+  editButton.addEventListener("click", function () {
+    const newText = prompt("Edit your message:", usersMessage);
+    if (newText !== null) {
+      newMessage.querySelector("span").innerText = `: ${newText}`;
+    }
+  });
+
+  messageList.appendChild(newMessage);
+  messageSection.style.display = "block";
+  messageForm.reset();
+});
