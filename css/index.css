@@ -265,3 +265,22 @@ nav a:hover {
     filter: grayscale(50%);
   }
 }
+
+/* ===== GitHub Projects Section ===== */
+#projects ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+#projects li {
+  background-color: #e6e6ff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  color: #000066;
+}
