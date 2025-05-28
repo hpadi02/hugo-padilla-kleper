@@ -94,3 +94,37 @@ messageForm.addEventListener("submit", function (event) {
   messageSection.style.display = "block";
   messageForm.reset();
 });
+
+// FETCH GitHub repositories
+fetch("https://api.github.com/users/hpadi02/repos")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .then((repositories) => {
+    console.log(repositories); // See what data is returned
+
+    const projectSection = document.getElementById("projects");
+    let projectList = projectSection.querySelector("ul");
+
+    if (!projectList) {
+      projectList = document.createElement("ul");
+      projectSection.appendChild(projectList);
+    }
+
+    for (let i = 0; i < repositories.length; i++) {
+      const project = document.createElement("li");
+      project.innerText = repositories[i].name;
+      projectList.appendChild(project);
+    }
+  })
+  .catch((error) => {
+    console.error("There was a problem fetching the repos:", error);
+    const projectSection = document.getElementById("projects");
+    const errorMsg = document.createElement("p");
+    errorMsg.innerText = "Error loading repositories.";
+    errorMsg.style.color = "red";
+    projectSection.appendChild(errorMsg);
+  });
