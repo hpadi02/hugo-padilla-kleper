@@ -95,7 +95,26 @@ messageForm.addEventListener("submit", function (event) {
   messageForm.reset();
 });
 
-// FETCH GitHub repositories
+// DARK MODE TOGGLE
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+darkModeToggle.addEventListener('click', function() {
+  document.body.classList.toggle('dark-mode');
+  if(document.body.classList.contains('dark-mode')) {
+    darkModeToggle.textContent = '☀️';
+  } else {
+    darkModeToggle.textContent = '🌙';
+  }
+});
+
+// Update skills list to use grid class
+skillsList.innerHTML = '';
+for (let i = 0; i < skills.length; i++) {
+  const skill = document.createElement('li');
+  skill.innerText = skills[i];
+  skillsList.appendChild(skill);
+}
+
+// Update project list to make the entire card clickable
 fetch("https://api.github.com/users/hpadi02/repos")
   .then((response) => {
     if (!response.ok) {
@@ -104,24 +123,32 @@ fetch("https://api.github.com/users/hpadi02/repos")
     return response.json();
   })
   .then((repositories) => {
-    console.log(repositories); // See what data is returned
-
     const projectSection = document.getElementById("projects");
     let projectList = projectSection.querySelector("ul");
-
     if (!projectList) {
       projectList = document.createElement("ul");
       projectSection.appendChild(projectList);
     }
-
+    projectList.innerHTML = '';
     for (let i = 0; i < repositories.length; i++) {
+      const repo = repositories[i];
       const project = document.createElement("li");
-      project.innerText = repositories[i].name;
+      const projectLink = document.createElement("a");
+      projectLink.href = repo.html_url;
+      projectLink.target = "_blank";
+      projectLink.tabIndex = 0;
+      projectLink.innerHTML = `<div><strong>${repo.name}</strong></div><div style='font-size:0.9em;font-weight:400;'>${repo.description ? repo.description : ''}</div>`;
+      project.appendChild(projectLink);
+      project.addEventListener('click', function(e) {
+        // Only trigger if not clicking a child link (for accessibility)
+        if (e.target === project || e.target === projectLink || e.target.closest('li')) {
+          window.open(repo.html_url, '_blank');
+        }
+      });
       projectList.appendChild(project);
     }
   })
   .catch((error) => {
-    console.error("There was a problem fetching the repos:", error);
     const projectSection = document.getElementById("projects");
     const errorMsg = document.createElement("p");
     errorMsg.innerText = "Error loading repositories.";
